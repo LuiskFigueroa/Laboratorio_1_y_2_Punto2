@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">punto2</string>
+    <string name="hello">Hello</string>
+    <string name="text_view_register_account_title">Crear cuenta</string>
+    <string name="activity_register_account_help_names">Nombres</string>
+    <string name="activity_register_account_help_email">Correo electrónico</string>
+    <string name="activity_register_account_help_password">Contraseña</string>
+    <string name="activity_register_account_help_repeat_password">Repetir contraseña</string>
+    <string name="activity_register_account_help_obligatorio">*Obligatorio</string>
+    <string name="activity_register_account_button_save">Guardar</string>
+    <string name="activity_register_account_radio_button_female">Femenino</string>
+    <string name="activity_register_account_radio_button_male">Masculino</string>
+    <string name="activity_register_account_check_box_dance">Bailar</string>
+    <string name="activity_register_account_check_box_cycling">Ciclismo</string>
+    <string name="activity_register_account_check_box_cinema">Cine</string>
+    <string name="activity_register_account_check_box_travel">Viajar</string>
+    <string name="activity_register_account_text_view_gender">Genero:</string>
+    <string name="activity_register_account_text_view_hobbies">Escoja sus hobbies favoritos:</string>
+    <string name="activity_register_account_help_date">Fecha de nacimiento</string>
+    <string name="activity_register_account_help_place">Lugar de nacimiento</string>
+    <string name="activity_splash">splash</string>
+
+
+    <string-array name="places">
+        <item>Barranquilla</item>
+        <item>Bogotá</item>
+        <item>Cartagena</item>
+        <item>Medellin</item>
+        <item>Sincelejo</item>
+    </string-array>
+
+</resources>
+
+
