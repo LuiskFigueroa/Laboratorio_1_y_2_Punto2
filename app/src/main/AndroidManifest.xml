@@ -15,10 +15,9 @@
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/NoActionBar">
+            android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,9 +26,7 @@
             android:name=".presentation.account.RegisterAccountActivity"
             android:exported="true" >
         </activity>
-        <activity
-            android:name=".presentation.main.MainActivity"
-            android:exported="true" />
+
     </application>
 
 </manifest>

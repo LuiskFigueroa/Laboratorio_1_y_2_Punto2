@@ -5,16 +5,14 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.google.android.material.internal.TextWatcherAdapter
 import com.lcarlosfb.myapplication.R
-import com.lcarlosfb.myapplication.databinding.ActivityMainBinding
 import com.lcarlosfb.myapplication.databinding.ActivityRegisterAccountBinding
 import java.util.*
 
 
+@Suppress("NAME_SHADOWING")
 class RegisterAccountActivity : AppCompatActivity() {
 
 	private lateinit var registerAccountBinding: ActivityRegisterAccountBinding
@@ -68,27 +66,42 @@ class RegisterAccountActivity : AppCompatActivity() {
 
 
 			if (name.isEmpty() || email.isEmpty() || password.isEmpty() || rpassword.isEmpty() ||
-				date.isEmpty() || place.isEmpty())
-				Toast.makeText(applicationContext,"No debe dejar campos vacios",Toast.LENGTH_SHORT).show()
+				date.isEmpty() || place.isEmpty()) {
+				Toast.makeText(
+					applicationContext,
+					"Rellenar campos vacíos",
+					Toast.LENGTH_SHORT
+				).show()
 
-				if (name.isEmpty())
+				if (name.isEmpty()) {
 					registerAccountBinding.edtName.setError("Ingrese su Nombre")
-				if (email.isEmpty())
+				}
+				if (email.isEmpty()) {
 					registerAccountBinding.edtEmail.setError("Ingrese su correo electronico")
-				if (password.isEmpty())
+				}
+				if (password.isEmpty()) {
 					registerAccountBinding.edtPassword.setError("Ingrese contraseña")
-				if (rpassword.isEmpty())
+				}
+				if (rpassword.isEmpty()) {
 					registerAccountBinding.edtRepeatPassword.setError("Ingrese contraseña")
-				if (date.isEmpty())
-					registerAccountBinding.edtDate.error="Ingrese fecha de nacimiento"
-				if (place.isEmpty())
-					registerAccountBinding.actvPlace.error="Ingrese lugar de nacimiento"
+				}
+				if (date.isEmpty()) {
+					registerAccountBinding.edtDate.setError("Ingrese fecha de nacimiento")
+				}else{
+					registerAccountBinding.edtDate.setError(null)
+				}
+				if (place.isEmpty()) {
+					registerAccountBinding.actvPlace.setError("Ingrese lugar de nacimiento")
+				}else{
+					registerAccountBinding.actvPlace.setError(null)
+				}
 
-
-			if (password != rpassword)
+			}else if (password != rpassword){
+				registerAccountBinding.actvPlace.setError(null)
+				registerAccountBinding.edtRepeatPassword.setError("Verificar contraseña")
 				Toast.makeText(applicationContext,"Las contraseñas no son iguales",Toast.LENGTH_SHORT).show()
+			} else{
 
-			else{
 				val gender = if(registerAccountBinding.rbFemale.isChecked)
 						"Femenino"
 					else
@@ -105,7 +118,6 @@ class RegisterAccountActivity : AppCompatActivity() {
 				registerAccountBinding.tvResponse.setText(info)
 
 			}
-
 		}
 	}
 }
