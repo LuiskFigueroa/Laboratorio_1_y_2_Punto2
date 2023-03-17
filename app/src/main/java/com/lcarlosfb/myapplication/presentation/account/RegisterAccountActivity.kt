@@ -55,7 +55,6 @@ class RegisterAccountActivity : AppCompatActivity() {
 
 		registerAccountBinding.btnSave.setOnClickListener {
 
-
 			var info = ""
 			val name = registerAccountBinding.edtName.text.toString()
 			val email = registerAccountBinding.edtEmail.text.toString()
@@ -64,60 +63,48 @@ class RegisterAccountActivity : AppCompatActivity() {
 			val date = registerAccountBinding.edtDate.text.toString()
 			val place = registerAccountBinding.actvPlace.text.toString()
 
-
-			if (name.isEmpty() || email.isEmpty() || password.isEmpty() || rpassword.isEmpty() ||
-				date.isEmpty() || place.isEmpty()) {
-				Toast.makeText(
-					applicationContext,
-					"Rellenar campos vacíos",
-					Toast.LENGTH_SHORT
-				).show()
-
-				if (name.isEmpty()) {
-					registerAccountBinding.edtName.setError("Ingrese su Nombre")
-				}
-				if (email.isEmpty()) {
-					registerAccountBinding.edtEmail.setError("Ingrese su correo electronico")
-				}
-				if (password.isEmpty()) {
-					registerAccountBinding.edtPassword.setError("Ingrese contraseña")
-				}
-				if (rpassword.isEmpty()) {
-					registerAccountBinding.edtRepeatPassword.setError("Ingrese contraseña")
-				}
-				if (date.isEmpty()) {
-					registerAccountBinding.edtDate.setError("Ingrese fecha de nacimiento")
-				}else{
-					registerAccountBinding.edtDate.setError(null)
-				}
-				if (place.isEmpty()) {
-					registerAccountBinding.actvPlace.setError("Ingrese lugar de nacimiento")
-				}else{
-					registerAccountBinding.actvPlace.setError(null)
-				}
-
+			if (name.isEmpty()) {
+				registerAccountBinding.edtName.setError("Ingrese su Nombre")
+				Toast.makeText(	applicationContext,"Rellenar campos vacíos",Toast.LENGTH_SHORT).show()
+			}else if (email.isEmpty()) {
+				registerAccountBinding.edtEmail.setError("Ingrese su correo electronico")
+				Toast.makeText(	applicationContext,"Rellenar campos vacíos",Toast.LENGTH_SHORT).show()
+			}else if (password.isEmpty()) {
+				registerAccountBinding.edtPassword.setError("Ingrese contraseña")
+				Toast.makeText(	applicationContext,"Rellenar campos vacíos",Toast.LENGTH_SHORT).show()
+			}else if (rpassword.isEmpty()) {
+				registerAccountBinding.edtRepeatPassword.setError("Ingrese contraseña")
+				Toast.makeText(	applicationContext,"Rellenar campos vacíos",Toast.LENGTH_SHORT).show()
+			}else if (date.isEmpty()) {
+				registerAccountBinding.edtDate.setError("Ingrese fecha de nacimiento")
+				Toast.makeText(applicationContext, "Rellenar campos vacíos", Toast.LENGTH_SHORT).show()
+			}else if (place.isEmpty()) {
+				registerAccountBinding.actvPlace.setError("Ingrese lugar de nacimiento")
+				Toast.makeText(applicationContext, "Rellenar campos vacíos", Toast.LENGTH_SHORT).show()
 			}else if (password != rpassword){
 				registerAccountBinding.actvPlace.setError(null)
+				registerAccountBinding.edtDate.setError(null)
 				registerAccountBinding.edtRepeatPassword.setError("Verificar contraseña")
 				Toast.makeText(applicationContext,"Las contraseñas no son iguales",Toast.LENGTH_SHORT).show()
-			} else{
 
+			}else{
+				registerAccountBinding.actvPlace.setError(null)
+				registerAccountBinding.edtDate.setError(null)
 				val gender = if(registerAccountBinding.rbFemale.isChecked)
 						"Femenino"
 					else
 						"Masculino"
-
 				var hobbies = ""
 				if (registerAccountBinding.cbCinema.isChecked) hobbies = "Cine"
 				if (registerAccountBinding.cbDance.isChecked) hobbies += " Bailar"
 				if (registerAccountBinding.cbCycling.isChecked) hobbies += " Ciclismo"
 				if (registerAccountBinding.cbTravel.isChecked) hobbies += " Viajar"
-
 				info += "Nombre: $name\nEmail: $email\nContraseña: $password\nGenero: $gender\nHobbies: $hobbies\n" +
 						"Fecha nacimiento: $date\nLugar nacimiento: $place"
 				registerAccountBinding.tvResponse.setText(info)
-
 			}
 		}
 	}
 }
+
+// Punto 2 de la version 1.0 terminado
