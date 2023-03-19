@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:textAlignment="center" >
+        android:textAlignment="center"
+        tools:ignore="ExtraText">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -214,7 +215,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="16dp"
-            app:startIconDrawable="@drawable/ic_place">
+            app:startIconDrawable="@drawable/ic_place"
+            app:helperText="@string/activity_register_account_help_obligatorio">
 
             <AutoCompleteTextView
                 android:id="@+id/actvPlace"
@@ -236,9 +238,9 @@
 
         <TextView
             android:id="@+id/tvResponse"
+            android:layout_marginHorizontal="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
